@@ -50,7 +50,8 @@ function NarrowItDownController(MenuSearchService) {
       console.log("Please enter value!");
     }else {
       menu.empty_searchTerm = false;
-      var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
+      var searchTermLowerCase = searchTerm.toLowerCase();
+      var promise = MenuSearchService.getMatchedMenuItems(searchTermLowerCase);
       promise.then(function(response){
         if(response.length == 0){
           menu.empty_list = true;
