@@ -3,28 +3,22 @@
 
 angular.module('LunchCheck', [])
 
-.controller('LunchCheckController',con);
-con.$inject = ['$scope'];
-function con ($scope){
+.controller('LunchCheckController',lunchChecker);
+lunchChecker.$inject = ['$scope'];
+function lunchChecker ($scope){
+  $scope.lunchItems = "";
+  $scope.message = "";
   $scope.test = function(){
-    $scope.message = "";
-var textValue = document.getElementById('lunch-menu').value;
-if(textValue === ""){
+  var comma = ",";
+  var itemArray =$scope.lunchItems.split(comma);
+  console.log(itemArray);
+  if($scope.lunchItems === ""){
   $scope.message = "Please enter data first";
-  }
-else if (true) {
-  var comma = ","
-  var array = textValue.split(comma);
-  if(array.length <= 3){
+  }else if (itemArray.length <= 3){
   $scope.message = "Enjoy!" ;
+  }
+  else { $scope.message = "Too Much!";
       }
-  else if (array.length >= 4) {
-    $scope.message = "Too Much!";
-      }
-
-    }
   }
 }
-
-
 })();

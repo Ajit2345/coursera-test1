@@ -13,8 +13,8 @@ function ToBuyController(ShoppingListCheckOffService) {
   buyList.removeItem = function (itemIndex) {
     ShoppingListCheckOffService.removeItem(itemIndex);
   };
-  buyList.addItem = function(itemName, itemQuantity){
-    ShoppingListCheckOffService.addItem(itemName, itemQuantity);
+  buyList.addItem = function(itemIndex){
+    ShoppingListCheckOffService.addItem(itemIndex);
   }
 }
 /*******************CONTROLLER2*********************************/
@@ -42,13 +42,15 @@ var boughtListItems = [];
     return buyListItems;
   };
   service.removeItem = function (itemIdex) {
+    boughtListItems.push(buyListItems[itemIdex]);
     buyListItems.splice(itemIdex, 1);
+    //boughtListItems.push(buyListItems[itemIdex]);
     console.log("Buy list: "+ buyListItems);
   };
-  service.addItem = function (itemName, itemQuantity) {
-      var item = {name:itemName, quantity: itemQuantity};
-      boughtListItems.push(item);
-      console.log("Bought list: "+boughtListItems);
+  service.addItem = function (itemIdex) {
+      //var item = {name:itemName, quantity: itemQuantity};
+      boughtListItems.push(buyListItems[itemIdex]);
+      console.log("Bought list: "+ boughtListItems);
     };
   service.getItems2 = function () {
     return boughtListItems;

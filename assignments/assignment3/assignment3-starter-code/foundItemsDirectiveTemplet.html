@@ -1,0 +1,10 @@
+<!-- <h3>Title: {{ list.myTitle }}</h3> -->
+<h2>List of Menu Items</h2>
+<ol>
+  <li ng-repeat="item in menu.items">
+    <!-- food: {{item.foodName}}, quantity: {{item.quantity}} -->
+    Short Name: {{item.short_name}}, Name: {{item.name}}, Describtion: {{item.description}}
+  <button class="btn btn-primary" ng-click = "menu.onRemove({index: $index});">Don't want this one!</button>
+  </li>
+</ol>
+<div class="error" ng-if="menu.cookiesInBox()">WARNING! WARNING! DATA VALUE MISSING!</div>
