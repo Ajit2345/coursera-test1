@@ -42,8 +42,8 @@ function NarrowItDownController(MenuSearchService) {
   var menu = this;
   console.log("this is ", menu)
   menu.searchTerm = "";
-  // menu.empty_searchTerm = true;
-  //creation of narrowItDown function
+  menu.empty_searchTerm = false;
+  menu.empty_list = false;
   menu.narrowItDown = function(searchTerm){
     if(searchTerm ==""){
       menu.empty_searchTerm = true;
